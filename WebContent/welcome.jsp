@@ -9,6 +9,10 @@
 <body>
 	 
 	<%
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");//HTTP 1.1
+		response.setHeader("Pragma", "no-cache");//HTTP 1.0
+		response.setDateHeader("Expires", 0);//Proxies
+		
 		if(session.getAttribute("uname")==null)
 		{
 			response.sendRedirect("login.jsp");
@@ -21,5 +25,6 @@
 	<form action="logout">
 		<input type="submit" value="Logout">
 	</form>
+	
 </body>
 </html>

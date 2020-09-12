@@ -8,11 +8,22 @@
 </head>
 <body>
 	<%
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");//HTTP 1.1
+		response.setHeader("Pragma", "no-cache");//HTTP 1.0
+		response.setDateHeader("Expires", 0);//Proxies
+	
 		if(session.getAttribute("uname")==null)
 		{
 			response.sendRedirect("login.jsp");
 		}
 	%>
-	Videos
+	
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/Spzug_SjJnM" 
+	frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+	</iframe>
+	
+	<form action="logout">
+		<input type="submit" value="Logout">
+	</form>
+	
 </body>
-</html>
